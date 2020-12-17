@@ -46,11 +46,20 @@
           <p class="panel-heading">
             By <%= @recipe.user.nickname %>
           </p>
-          <%= link_to user_path(@recipe.user), class: "panel-block" do %>
-            <span class="panel-icon">
-              <i class="fas fa-user" aria-hidden="true"></i>
-            </span>
-            <%= @recipe.user.nickname %> さんのページへ
+          <% if @recipe.user.id == current_user.id %>
+            <%= link_to user_path(@recipe.user), class: "panel-block" do %>
+              <span class="panel-icon">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </span>
+              マイページへ
+            <% end %>
+          <% else %>
+            <%= link_to user_path(@recipe.user), class: "panel-block" do %>
+              <span class="panel-icon">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </span>
+              <%= @recipe.user.nickname %> さんのページへ
+            <% end %>
           <% end %>
         </article>
       </div>
