@@ -35,6 +35,11 @@
           </div>
 
           <div class="field">
+            <%= f.label :genre, "ジャンル", class: "label" %>
+            <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box"}) %>
+          </div>
+
+          <div class="field">
             <%= f.label :image, "写真", class: "label" %>
             <%= f.attachment_field :image, class: "input" %>
           </div>

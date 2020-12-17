@@ -27,14 +27,17 @@
             <div class="content">
               <table class="table is-narrow">
                 <tr>
-                  <th>レシピ</th>
+                  <%= link_to "参考サイト", @recipe.body, class: "button is-success" %>
                 </tr>
                 <tr>
-                  <td><%= simple_format @recipe.body %></td>
+                  <th>ジャンル</th> 
+                </tr>
+                <tr>
+                  <td><%= simple_format @recipe.genre.name %></td>
                 </tr>
               </table>
               <% if @recipe.user.id == current_user.id %>
-                <%= link_to "編集画面へ", edit_recipe_path(@recipe), class: "button is-success" %>
+                <%= link_to "編集画面へ", edit_recipe_path(@recipe), class: "button is-info is-light is-small" %>
               <% end %>
             </div>
           </div>
@@ -46,11 +49,20 @@
           <p class="panel-heading">
             By <%= @recipe.user.nickname %>
           </p>
-          <%= link_to user_path(@recipe.user), class: "panel-block" do %>
-            <span class="panel-icon">
-              <i class="fas fa-user" aria-hidden="true"></i>
-            </span>
-            <%= @recipe.user.nickname %> さんのページへ
+          <% if @recipe.user.id == current_user.id %>
+            <%= link_to user_path(@recipe.user), class: "panel-block" do %>
+              <span class="panel-icon">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </span>
+              マイページへ
+            <% end %>
+          <% else %>
+            <%= link_to user_path(@recipe.user), class: "panel-block" do %>
+              <span class="panel-icon">
+                <i class="fas fa-user" aria-hidden="true"></i>
+              </span>
+              <%= @recipe.user.nickname %> さんのページへ
+            <% end %>
           <% end %>
         </article>
       </div>

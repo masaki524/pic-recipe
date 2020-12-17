@@ -1,4 +1,4 @@
-class Recipe < ApplicationRecord
+class Recipe < ApplicationRecord 
 
   belongs_to :user
   attachment :image
@@ -8,4 +8,9 @@ class Recipe < ApplicationRecord
     validates :body
     validates :image
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :genre
+
+  validates :genre_id, numericality: { other_than: 1 }
 end
