@@ -1,0 +1,2 @@
+module PicrecipesHelper
+end
