@@ -27,6 +27,13 @@ class RecipesController < ApplicationController
     @recipe.update(recipe_params)
     redirect_to recipe_path(@recipe)
   end
+
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe.destroy
+    redirect_to user_path(recipe.user), notice: "レシピを削除しました。"
+  end
+  
   private
 
   def recipe_params
