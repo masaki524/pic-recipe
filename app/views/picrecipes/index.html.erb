@@ -1,2 +1,33 @@
-<h1>Picrecipes#index</h1>
-<p>Find me in app/views/picrecipes/index.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        picRecipe
+      </h1>
+    </div>
+  </div>
+</section>
+
+
+<%= search_form_for @q, url: picrecipes_search_path do |f| %>
+  <%= f.label :genre_id_eq, 'ジャンル：' %>
+  <%= f.radio_button :genre_id_eq, '' %>
+  指定なし
+  <%= f.radio_button :genre_id_eq, '2' %>
+  和風
+  <%= f.radio_button :genre_id_eq, '3' %>
+  洋風
+  <%= f.radio_button :genre_id_eq, '4' %>
+  中華
+  <%= f.radio_button :genre_id_eq, '5' %>
+  イタリアン
+  <%= f.radio_button :genre_id_eq, '6' %>
+  デザート
+  <%= f.radio_button :genre_id_eq, '7' %>
+  その他
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
+
+

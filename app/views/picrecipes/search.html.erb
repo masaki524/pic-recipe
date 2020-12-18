@@ -1,0 +1,23 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        picRecipe
+      </h1>
+    </div>
+  </div>
+</section>
+
+<%# 検索結果の個数で条件分岐 %>
+<% @results.each do |result| %>
+  <li>
+  　<%= attachment_image_tag result, :image %>
+    <%= result.title %>
+    <%= link_to "参考サイト", result.body, class: "button is-success" %>
+    <%= result.genre.name %>
+  </li>
+<% end %>
+<br>
+<%= link_to 'again', picrecipes_path %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>
