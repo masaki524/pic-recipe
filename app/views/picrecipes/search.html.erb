@@ -1,0 +1,59 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        picRecipe
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+
+      <% @results.each do |result| %>
+        <div class="column is-7">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= attachment_image_tag result, :image %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4"><%= result.title %></p>
+                </div>
+              </div>
+              <div class="content">
+                <table class="table is-narrow">
+                  <tr>
+                    <%= link_to "参考サイト", result.body, class: "button is-success" %>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="colum is-4 ">
+        <div class="tag is-link is-light is-medium">
+          <%= link_to picrecipes_path do %>
+            <i class="fas fa-undo-alt" aria-hidden="true"></i>
+            もう一度
+          <% end %>
+        </div>
+        <br>
+        <br>
+        <div class="tag is-white is-medium">
+          <%= link_to root_path do %>
+            トップページへ戻る
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

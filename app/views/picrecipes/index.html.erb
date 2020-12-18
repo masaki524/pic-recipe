@@ -1,0 +1,59 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        picRecipe
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= search_form_for @q, url: picrecipes_search_path do |f| %>
+          <div class="tag is-warning is-medium">
+            <%= f.label :genre_id_eq, 'ジャンル' %>
+          </div>
+          <div class="field">
+            <%= f.radio_button :genre_id_eq, '' %>
+            指定なし
+          </div>
+          <div class="field">
+            <%= f.radio_button :genre_id_eq, '2' %>
+            和風
+          </div>
+          <div class="field">
+            <%= f.radio_button :genre_id_eq, '3' %>
+            洋風
+          </div>
+          <div class="field">
+            <%= f.radio_button :genre_id_eq, '4' %>
+            中華
+          </div>
+          <div class="field">
+            <%= f.radio_button :genre_id_eq, '5' %>
+            イタリアン
+          </div>
+          <div class="field">
+            <%= f.radio_button :genre_id_eq, '6' %>
+            デザート
+          </div>
+          <div class="field">
+            <%= f.radio_button :genre_id_eq, '7' %>
+            その他
+          </div>
+          
+          <div class="field">
+            <%= f.submit '検索',class: "button is-info is-light" %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

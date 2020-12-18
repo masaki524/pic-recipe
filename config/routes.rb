@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   resources :recipes
+  get 'picrecipes/search'
+  resources :picrecipes
 end
