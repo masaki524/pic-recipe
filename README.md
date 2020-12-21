@@ -66,10 +66,6 @@ URL: https://pic-recipe.herokuapp.com/
 ### 開発環境
 RuboCop
 
-### 本番環境
-
-
-# 📘 インフラ構成図
-
-
 # 📙 ER図
+
+https://gyazo.com/184ba83eefc7475609354c78f06498e4
